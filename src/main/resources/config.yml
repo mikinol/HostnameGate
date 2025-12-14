@@ -9,6 +9,7 @@ kick-message: "<red>You must connect through an allowed hostname!</red>"
 # Filter mode:
 # "default"     - Standard Paper PreLoginEvent handling. Players using a disallowed hostname
 #                 are kicked with the above kick-message.
+# WIP:
 # "protocollib" - Advanced mode using ProtocolLib. Connections are terminated immediately
 #                 after the Handshake (TCP reset) without sending any kick-message.
 mode: "default"
