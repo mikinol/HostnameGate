@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.mikinol.hostnamegate"
-version = "0.1"
+version = "0.3"
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ kotlin {
 tasks.withType<ProcessResources> {
     inputs.property("version", project.version)
 
-    filesMatching("plugin.yml") {
+    filesMatching("paper-plugin.yml") {
         expand("version" to project.version)
     }
 }

@@ -5,7 +5,12 @@ import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.plugin.java.JavaPlugin
 
 
-class HostnameGatePaper : JavaPlugin() {
+class HostnameGatePlugin : JavaPlugin() {
+    companion object {
+        lateinit var instance: HostnameGatePlugin
+            private set
+    }
+
     private lateinit var allowedHosts: List<String>
     private lateinit var kickMessage: Component
     private lateinit var mode: String
@@ -25,6 +30,9 @@ class HostnameGatePaper : JavaPlugin() {
         }
     }
 
+    override fun onLoad() {
+        instance = this
+    }
     override fun onEnable() {
         this.reloadConfig()
     }

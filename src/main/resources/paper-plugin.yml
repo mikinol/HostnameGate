@@ -1,0 +1,11 @@
+name: HostnameGate
+version: '1.0'
+main: me.mikinol.hostnamegate.HostnameGatePlugin
+author: "mikinol"
+api-version: '1.20'
+bootstrapper: me.mikinol.hostnamegate.HostnameGateBootstrap
+
+permissions:
+  hostnamegate.reload:
+    description: "Allows to reload plugin"
+    default: op
