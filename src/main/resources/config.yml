@@ -1,0 +1,14 @@
+# List of allowed hostnames clients can connect through.
+# Keep it empty initially if you don't want to restrict access.
+allowed-hosts: []
+
+# Message shown to players when they are kicked for using a disallowed hostname.
+# Uses MiniMessage formatting, e.g., <red>, <gold>, <bold>, etc.
+kick-message: "<red>You must connect through an allowed hostname!</red>"
+
+# Filter mode:
+# "default"     - Standard Paper PreLoginEvent handling. Players using a disallowed hostname
+#                 are kicked with the above kick-message.
+# "protocollib" - Advanced mode using ProtocolLib. Connections are terminated immediately
+#                 after the Handshake (TCP reset) without sending any kick-message.
+mode: "default"
