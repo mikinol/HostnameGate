@@ -13,3 +13,6 @@ kick-message: "<red>You must connect through an allowed hostname!</red>"
 # "protocollib" - Advanced mode using ProtocolLib. Connections are terminated immediately
 #                 after the Handshake (TCP reset) without sending any kick-message.
 mode: "default"
+
+# Enable debug mode
+debug: false

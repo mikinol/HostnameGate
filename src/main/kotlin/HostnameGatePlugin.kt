@@ -4,12 +4,22 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.logging.ConsoleHandler
+import java.util.logging.Level
+import java.util.logging.SimpleFormatter
+import kotlin.math.log
 
 
 class HostnameGatePlugin : JavaPlugin() {
     companion object {
         lateinit var instance: HostnameGatePlugin
             private set
+        fun debug(msg: String) {
+            if (instance.debugMode) {
+                instance.logger.info("[DEBUG] $msg")
+            }
+        }
+
     }
 
     lateinit var allowedHosts: List<String>
@@ -18,8 +28,11 @@ class HostnameGatePlugin : JavaPlugin() {
         private set
     lateinit var mode: String
         private set
+    var debugMode: Boolean = false
+        private set
 
     override fun reloadConfig() {
+        saveDefaultConfig()
         super.reloadConfig()
         config.options().copyDefaults(true)
         saveConfig()
@@ -37,6 +50,8 @@ class HostnameGatePlugin : JavaPlugin() {
             }
             this.mode = mode
         }
+        debugMode = config.getBoolean("debug")
+        debug("Config reloaded!")
     }
 
     override fun onLoad() {

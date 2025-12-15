@@ -4,6 +4,7 @@ import com.mojang.brigadier.Command
 import com.mojang.brigadier.tree.LiteralCommandNode
 import io.papermc.paper.command.brigadier.CommandSourceStack
 import io.papermc.paper.command.brigadier.Commands
+import me.mikinol.hostnamegate.HostnameGatePlugin.Companion.debug
 
 
 object ReloadCommand {
@@ -12,6 +13,7 @@ object ReloadCommand {
         .then(
             Commands.literal("reload")
                 .executes { ctx ->
+                    debug("${ctx.source.sender} reloading plugin")
                     HostnameGatePlugin.instance.reloadConfig()
                     ctx.source.sender.sendMessage("Config reloaded")
                     Command.SINGLE_SUCCESS
